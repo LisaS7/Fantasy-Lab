@@ -1,5 +1,8 @@
 package player;
-public abstract class Player {
+
+import behaviours.ITakeDamage;
+
+public abstract class Player implements ITakeDamage {
     private String name;
     private int hp;
 
@@ -14,5 +17,14 @@ public abstract class Player {
 
     public int getHp() {
         return hp;
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        this.hp -= damage;
+    }
+
+    public void heal(int points) {
+        this.hp += points;
     }
 }
