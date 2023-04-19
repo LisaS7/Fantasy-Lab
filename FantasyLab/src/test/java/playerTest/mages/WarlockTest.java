@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import player.fighters.Dwarf;
 import player.mages.Warlock;
-import player.mages.Wizard;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
