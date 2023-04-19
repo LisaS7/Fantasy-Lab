@@ -1,5 +1,5 @@
 package behaviours;
 
 public interface IDefend {
-    public void defend();
+    public int defend(int damage);
 }

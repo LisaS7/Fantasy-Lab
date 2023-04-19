@@ -18,7 +18,7 @@ public abstract class Fighter extends Player implements IAttack {
     @Override
     public void attack(ITakeDamage target) {
         int damage = this.weapon.getDamage();
-            target.takeDamage(damage);
+        target.takeDamage(damage);
     }
 
     public void changeWeapon(WeaponType weapon){

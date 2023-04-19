@@ -1,5 +1,6 @@
 package player;
 
+import behaviours.IDefend;
 import behaviours.ITakeDamage;
 
 public abstract class Player implements ITakeDamage {
@@ -21,6 +22,9 @@ public abstract class Player implements ITakeDamage {
 
     @Override
     public void takeDamage(int damage) {
+        if (this instanceof IDefend) {
+            this.hp -= damage * 0.75;
+        }
         this.hp -= damage;
     }
 
