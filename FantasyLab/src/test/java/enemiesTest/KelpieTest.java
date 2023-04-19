@@ -1,27 +1,33 @@
 package enemiesTest;
 
 import enemies.Kelpie;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class KelpieTest {
 
     Kelpie kelpie;
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void setUp() {
         kelpie = new Kelpie("Kelpie", 50);
     }
 
     @Test
-    public void canGetName() {
+    void hasName() {
         assertEquals("Kelpie", kelpie.getName());
     }
 
     @Test
-    public void canGetHealthPoints() {
+    void hasHp() {
         assertEquals(50, kelpie.getHp());
+    }
+
+    @Test
+    void canTakeDamage() {
+        kelpie.takeDamage(15);
+        assertEquals(35, kelpie.getHp());
     }
 }
