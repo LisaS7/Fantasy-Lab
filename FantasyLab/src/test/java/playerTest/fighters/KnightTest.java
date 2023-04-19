@@ -1,9 +1,9 @@
-package playerTest;
+package playerTest.fighters;
 
 import enums.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import player.Knight;
+import player.fighters.Knight;
 
 import static org.junit.jupiter.api.Assertions.*;
 

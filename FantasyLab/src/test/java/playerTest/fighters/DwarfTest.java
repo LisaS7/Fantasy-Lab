@@ -1,10 +1,9 @@
-package playerTest;
+package playerTest.fighters;
 
 import enums.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import player.Dwarf;
-import player.Knight;
+import player.fighters.Dwarf;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

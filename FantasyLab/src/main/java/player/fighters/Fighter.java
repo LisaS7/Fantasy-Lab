@@ -1,8 +1,9 @@
-package player;
+package player.fighters;
 
 import behaviours.IAttack;
 import behaviours.ITakeDamage;
 import enums.WeaponType;
+import player.Player;
 
 public abstract class Fighter extends Player implements IAttack {
     private WeaponType weapon;
