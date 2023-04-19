@@ -1,6 +1,8 @@
 package player;
 
 import behaviours.IHeal;
+import enemies.Enemy;
+import enemies.Ghoul;
 import enums.HealType;
 
 import java.util.ArrayList;
@@ -14,11 +16,22 @@ public class Cleric extends Player implements IHeal {
         super(name, hp);
     }
 
+    public HealType getItem() {
+        int randomIndex = (int) (Math.random() * items.size());
+        return items.get(randomIndex);
+    }
+
     @Override
     public void heal(Player player) {
-        int randomIndex = (int) (Math.random() * items.size());
-        HealType randomItem = items.get(randomIndex);
+        HealType randomItem = getItem();
         player.heal(randomItem.getHealPoints());
+    }
+
+    public void heal(Enemy enemy) {
+        if (enemy instanceof Ghoul) {
+            HealType item = getItem();
+            enemy.takeDamage(item.getHealPoints());
+        }
     }
 
     public void addItems(HealType ...items) {

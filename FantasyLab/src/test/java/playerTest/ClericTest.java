@@ -1,12 +1,15 @@
 package playerTest;
 
+import enemies.Ghoul;
 import enums.HealType;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import player.Cleric;
 import player.fighters.Dwarf;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class ClericTest {
     Cleric cleric;
@@ -32,6 +35,14 @@ public class ClericTest {
         Dwarf dwarf = new Dwarf("Boggum", 120);
         cleric.heal(dwarf);
         assertEquals(125, dwarf.getHp());
+    }
+
+    @Test
+    public void healUndeadDoesDamage() {
+        Ghoul ghoul = new Ghoul("Bob", 80);
+        cleric.heal(ghoul);
+        int expected = 80 - HealType.HERBS.getHealPoints();
+        assertEquals(expected, ghoul.getHp());
     }
 
 }
