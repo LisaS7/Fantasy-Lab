@@ -29,7 +29,7 @@ public abstract class Enemy implements ITakeDamage {
         if (this instanceof IDefend) {
             finalDamage = (int) (damage * 0.75);
         }
-        
+
         if (this.hp - finalDamage < 0) {
             this.hp = 0;
         }

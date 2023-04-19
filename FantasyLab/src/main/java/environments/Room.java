@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Room {
-    private ArrayList<Exit> exits = new ArrayList<>();
+    private final ArrayList<Exit> exits = new ArrayList<>();
 
     public Room() {
         List<Exit> allExits = Arrays.asList(Exit.values());
