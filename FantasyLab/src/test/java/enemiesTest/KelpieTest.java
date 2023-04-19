@@ -22,6 +22,6 @@ public class KelpieTest {
 
     @Test
     public void canGetHealthPoints() {
-        assertEquals(50, kelpie.getHealthPoints());
+        assertEquals(50, kelpie.getHp());
     }
 }

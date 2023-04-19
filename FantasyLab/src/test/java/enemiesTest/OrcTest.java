@@ -22,6 +22,6 @@ public class OrcTest {
 
     @Test
     public void canGetHealthPoints() {
-        assertEquals(10, orc.getHealthPoints());
+        assertEquals(10, orc.getHp());
     }
 }
