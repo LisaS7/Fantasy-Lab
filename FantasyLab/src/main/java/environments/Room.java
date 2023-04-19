@@ -15,9 +15,9 @@ public class Room {
         Collections.shuffle(allExits);
         int randomNumber = (int) (Math.random() * allExits.size());
 
-        for (int i = 0; i < randomNumber; i++) {
-            exits.add(allExits.get(i));
-        }
+        List<Exit> randomExits = allExits.subList(0, randomNumber);
+        exits.addAll(randomExits);
+
     }
 
     public ArrayList<Exit> getExits() {
