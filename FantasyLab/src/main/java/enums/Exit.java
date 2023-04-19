@@ -1,10 +1,17 @@
 package enums;
 
-import java.net.NoRouteToHostException;
-
 public enum Exit {
-    NORTH,
-    EAST,
-    SOUTH,
-    WEST;
+    NORTH("North"),
+    EAST("East"),
+    SOUTH("South"),
+    WEST("West");
+
+    private final String locations;
+
+    Exit(String locations) {
+        this.locations = locations;
+    }
+
+    public String getLocations() {return locations;}
+
 }
