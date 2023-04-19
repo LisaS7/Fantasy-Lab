@@ -24,9 +24,16 @@ public abstract class Enemy implements ITakeDamage {
 
     @Override
     public void takeDamage(int damage) {
+        int finalDamage = damage;
+
         if (this instanceof IDefend) {
-            this.hp -= damage * 0.50;
+            finalDamage = (int) (damage * 0.75);
         }
+        
+        if (this.hp - finalDamage < 0) {
+            this.hp = 0;
+        }
+
         this.hp -= damage;
     }
 }
