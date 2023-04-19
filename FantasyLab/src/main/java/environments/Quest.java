@@ -15,4 +15,12 @@ public class Quest {
     public int numberOfRooms() {
         return rooms.size();
     }
+
+    public Room currentRoom() {
+        return rooms.get(0);
+    }
+
+    public void nextRoom() {
+        rooms.remove(0);
+    }
 }
