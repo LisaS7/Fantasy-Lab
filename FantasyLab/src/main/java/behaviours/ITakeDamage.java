@@ -1,5 +1,5 @@
 package behaviours;
 
 public interface ITakeDamage {
-    public void takeDamage();
+    public void takeDamage(int damagePoints);
 }
