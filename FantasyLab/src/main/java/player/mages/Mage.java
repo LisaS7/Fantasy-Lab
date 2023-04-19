@@ -15,12 +15,24 @@ public abstract class Mage extends Player implements IDefend, ICast {
         super(name, hp);
     }
 
+    public SpellType getSpell(String name) {
+        for (SpellType spell: spells) {
+            if(spell.name().equals(name)) {
+                return spell;
+            }
+        }
+        return null;
+    }
+
     @Override
-    public void cast(ITakeDamage target) {
-        int randomIndex = (int) (Math.random() * spells.size());
-        SpellType spell = spells.get(randomIndex);
+    public void cast(ITakeDamage target, String spellName) {
+        SpellType spell = getSpell(spellName);
         int damage = spell.getDamage();
         target.takeDamage(damage);
+    }
+
+    public void learnSpell(SpellType spell) {
+        spells.add(spell);
     }
 
 }
