@@ -6,9 +6,13 @@ import enums.HealType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cleric implements IHeal {
+public class Cleric extends Player implements IHeal {
 
-    private ArrayList<HealType> items;
+    private ArrayList<HealType> items = new ArrayList<>();
+
+    public Cleric(String name, int hp) {
+        super(name, hp);
+    }
 
     @Override
     public void heal(Player player) {
