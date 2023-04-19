@@ -12,22 +12,22 @@ public class DragonTest {
     Dragon dragon;
 
     @BeforeEach
-    public void before() {
+    void setUp() {
         dragon = new Dragon("Smaug", 100);
     }
 
     @Test
-    public void hasName() {
+    void hasName() {
         assertEquals("Smaug",dragon.getName() );
     }
 
     @Test
-    public void hasHp() {
+    void hasHp() {
         assertEquals(100, dragon.getHp());
     }
 
     @Test
-    public void canTakeDamage() {
+    void canTakeDamage() {
         dragon.takeDamage(100);
         assertEquals(0, dragon.getHp());
     }
