@@ -1,5 +1,6 @@
 package playerTest.fighters;
 
+import enemies.Dragon;
 import enums.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,9 @@ public class DwarfTest {
 
     @BeforeEach
     void setUp() {
+
         dwarf = new Dwarf("Sanmag Flatbeard", 100);
+        dwarf.changeWeapon(WeaponType.AXE);
     }
 
     @Test
@@ -42,5 +45,13 @@ public class DwarfTest {
     void canHeal() {
         dwarf.heal(20);
         assertEquals(120, dwarf.getHp());
+    }
+
+    @Test
+    void canAttack() {
+        Dragon dragon = new Dragon("Egoth", 130);
+        dwarf.attack(dragon);
+        int expected = 130 - WeaponType.AXE.getDamage();
+        assertEquals(expected, dragon.getHp());
     }
 }

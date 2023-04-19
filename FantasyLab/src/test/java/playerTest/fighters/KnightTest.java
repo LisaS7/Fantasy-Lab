@@ -1,5 +1,6 @@
 package playerTest.fighters;
 
+import enemies.Dragon;
 import enums.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ class KnightTest {
     @BeforeEach
     void setUp() {
         knight = new Knight("Derek of Aberdeen", 250);
+        knight.changeWeapon(WeaponType.SWORD);
     }
 
     @Test
@@ -42,5 +44,13 @@ class KnightTest {
     void canHeal() {
         knight.heal(20);
         assertEquals(270, knight.getHp());
+    }
+
+    @Test
+    void canAttack() {
+        Dragon dragon = new Dragon("Egoth", 130);
+        knight.attack(dragon);
+        int expected = 130 - WeaponType.SWORD.getDamage();
+        assertEquals(expected, dragon.getHp());
     }
 }
