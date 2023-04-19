@@ -23,6 +23,6 @@ public class DragonTest {
 
     @Test
     public void canGetHealthPoints() {
-        assertEquals(100, dragon.getHealthPoints());
+        assertEquals(100, dragon.getHp());
     }
 }

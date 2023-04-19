@@ -1,23 +1,32 @@
 package enemies;
 
-public abstract class Enemy {
-    private String name;
-    private int healthPoints;
+import behaviours.IAttack;
+import behaviours.IDefend;
+import behaviours.ITakeDamage;
 
-    public Enemy(String name, int healthPoints) {
+
+public abstract class Enemy implements ITakeDamage {
+    private String name;
+    private int hp;
+
+    public Enemy(String name, int hp) {
         this.name = name;
-        this.healthPoints = healthPoints;
+        this.hp = hp;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getHealthPoints() {
-        return healthPoints;
+    public int getHp() {
+        return hp;
+    }
+    @Override
+    public void takeDamage(int damage) {
+        if (this instanceof IDefend) {
+            this.hp -= damage * 0.50;
+        }
+        this.hp -= damage;
     }
 
-//    public int takeDamage() {
-//        this.healthPoints -
-//    }
 }
