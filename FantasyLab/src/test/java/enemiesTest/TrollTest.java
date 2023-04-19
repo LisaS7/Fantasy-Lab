@@ -1,27 +1,33 @@
 package enemiesTest;
 
 import enemies.Troll;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrollTest {
 
     Troll troll;
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void setUp() {
         troll = new Troll("Troll", 25);
     }
 
     @Test
-    public void canGetName() {
+    void hasName() {
         assertEquals("Troll", troll.getName());
     }
 
     @Test
-    public void canGetHealthPoints() {
+    void hasHp() {
         assertEquals(25, troll.getHp());
+    }
+
+    @Test
+    void canTakeDamage() {
+        troll.takeDamage(5);
+        assertEquals(20, troll.getHp());
     }
 }
