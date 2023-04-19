@@ -21,6 +21,7 @@ public abstract class Enemy implements ITakeDamage {
     public int getHp() {
         return hp;
     }
+
     @Override
     public void takeDamage(int damage) {
         if (this instanceof IDefend) {
@@ -28,5 +29,4 @@ public abstract class Enemy implements ITakeDamage {
         }
         this.hp -= damage;
     }
-
 }
