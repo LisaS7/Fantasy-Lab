@@ -1,12 +1,11 @@
 package enemies;
 
-import behaviours.IAttack;
 import behaviours.IDefend;
 import behaviours.ITakeDamage;
 
 
 public abstract class Enemy implements ITakeDamage {
-    private String name;
+    private final String name;
     private int hp;
 
     public Enemy(String name, int hp) {

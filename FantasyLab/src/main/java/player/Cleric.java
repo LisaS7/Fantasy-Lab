@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Cleric extends Player implements IHeal {
 
-    private ArrayList<HealType> items = new ArrayList<>();
+    private final ArrayList<HealType> items = new ArrayList<>();
 
     public Cleric(String name, int hp) {
         super(name, hp);

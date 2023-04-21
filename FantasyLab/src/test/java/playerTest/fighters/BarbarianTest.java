@@ -1,6 +1,7 @@
 package playerTest.fighters;
 
 import enemies.Dragon;
+import enums.ItemType;
 import enums.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,6 +34,25 @@ public class BarbarianTest {
     void canChangeWeapon() {
         barbarian.changeWeapon(WeaponType.CLUB);
         assertEquals(WeaponType.CLUB, barbarian.getWeapon() );
+    }
+
+    @Test
+    void canCollectItems() {
+        ItemType gold = ItemType.GOLD;
+        ItemType book = ItemType.BOOK;
+        barbarian.collectItems(gold, book);
+        assertEquals(2, barbarian.getInventory().size());
+    }
+
+    @Test
+    void canSellItems() {
+        ItemType gold = ItemType.GOLD;
+        ItemType book = ItemType.BOOK;
+        barbarian.collectItems(gold, book);
+        barbarian.sellItems(gold, book);
+        int expected = ItemType.GOLD.getValue() + ItemType.BOOK.getValue();
+        assertEquals(0, barbarian.getInventory().size());
+        assertEquals(expected, barbarian.getMoney());
     }
 
     @Test

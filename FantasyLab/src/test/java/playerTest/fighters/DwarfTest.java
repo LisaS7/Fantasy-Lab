@@ -1,6 +1,7 @@
 package playerTest.fighters;
 
 import enemies.Dragon;
+import enums.ItemType;
 import enums.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,6 +34,25 @@ public class DwarfTest {
     void canChangeWeapon() {
         dwarf.changeWeapon(WeaponType.AXE);
         assertEquals(WeaponType.AXE, dwarf.getWeapon() );
+    }
+
+    @Test
+    void canCollectItems() {
+        ItemType gold = ItemType.GOLD;
+        ItemType book = ItemType.BOOK;
+        dwarf.collectItems(gold, book);
+        assertEquals(2, dwarf.getInventory().size());
+    }
+
+    @Test
+    void canSellItems() {
+        ItemType gold = ItemType.GOLD;
+        ItemType book = ItemType.BOOK;
+        dwarf.collectItems(gold, book);
+        dwarf.sellItems(gold, book);
+        int expected = ItemType.GOLD.getValue() + ItemType.BOOK.getValue();
+        assertEquals(0, dwarf.getInventory().size());
+        assertEquals(expected, dwarf.getMoney());
     }
 
     @Test
